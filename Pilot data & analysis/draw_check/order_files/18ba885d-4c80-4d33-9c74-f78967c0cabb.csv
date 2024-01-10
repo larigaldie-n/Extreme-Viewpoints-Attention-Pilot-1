@@ -1,0 +1,71 @@
+"Order","Index","Topic","Argument","Words","Agreement","Emotions","New","Fixation.Time"
+1,173,"Should abortion be considered murder?","Since death is the intention, such procedures should be considered murder",11,21.44578,31.3253,0,6759.13040000007
+2,158,"Should some people feel obliged to change their lifestyle to combat global warming?","Politicians and political parties should be responsible for enacting the laws and regulations necessary to make changes at scale",19,71.08434,35.54217,0,11784.0464
+3,107,"Is it ethically wrong to watch pornography?","Watching pornography contributes to human rights abuses, including gender inequality",10,20.12048,59.15663,0,5382.02819999997
+4,117,"Is Science Akin To Religion?","Science and religion are similar in that both have been used to explain the origin of man",17,0,31.68675,0,8492.06590000003
+5,159,"Should some people feel obliged to change their lifestyle to combat global warming?","Changes to individual lifestyles do not make a difference",9,42.16867,40.36145,0,7283.63619999994
+6,216,"Is Eating Meat Wrong?","The taste of meat is delicious and brings many people pleasure in a manner that vegetarian food cannot fully imitate",20,71.80723,56.74699,0,7662.62979999997
+7,156,"Is modern technology a disadvantage to society?","Many societies would not be possible without modern technology - especially large urbanized societies",14,69.87952,50,0,10030.8033
+8,196,"Should Sex Work Be Legal?","It is impossible to eradicate sex work as a profession. Therefore, it would be better to legalise it",18,38.31325,44.33735,0,8525.26180000013
+9,26,"Are Humans fundamentally different from other animals?","All animals are fundamentally different from each other, and there's nothing unique about humans that separate them from animals",19,19.39759,30.72289,0,5993.89679999993
+10,60,"Do electronic devices help or hurt children's development?","Devices can negatively affect children's social and psychological development",9,68.79518,50,0,9040.23610000001
+11,246,"Should all drugs be legalised?","If drugs were legalised, the drug trade would be less able to fuel serious crime",15,42.16867,50,0,8866.88509999987
+12,157,"Is modern technology a disadvantage to society?","Technology has forever changed day-to-day life for the better",9,79.51807,70.96386,0,2600.20099999994
+13,190,"Should religion be involved in politics?","Almost all laws are based on moral beliefs, therefore it is appropriate for religious persons to be involved in politics",20,19.75904,50,0,4603.93919999991
+14,213,"Is Eating Meat Wrong?","Vegetarian diets directly and indirectly contribute to better health outcomes for all humans",13,29.63855,34.09639,0,4859.89209999985
+15,214,"Is Eating Meat Wrong?","Ending the production of meat will be necessary in order to meet the growing food needs of the world's population",20,97.83133,76.14458,0,10543.8313000001
+16,62,"Do electronic devices help or hurt children's development?","Boredom sparks creativity but with a smartphone children are never bored and don't learn to be creative",17,54.57831,61.3253,0,4908.76170000032
+17,161,"Should some people feel obliged to change their lifestyle to combat global warming?","People in today's society should change their lifestyles because the quality of life of future generations is equally important",19,62.6506,42.04819,0,2391.38969999994
+18,272,"Should there be no limit to freedom of speech?","Censorship leads to narrow mindedness by preventing sincere and open discussion",11,36.74699,46.98795,1,2491.78819999995
+19,167,"Pro-Life vs Pro-Choice: Should Abortion be Legal?","If people have the right to choose, they could make biased choices regarding which foetuses to abort",17,35.78313,29.39759,0,7792.15039999987
+20,289,"Should we adapt to climate change rather than avert it?","Adaptation is a short-term solution, whereas averting climate change is a long-term solution",13,58.07229,50,0,9650.06740000029
+21,195,"Should Sex Work Be Legal?","The government has no right to outlaw an interaction between consenting adults",12,93.9759,45.42169,0,4028.00749999989
+22,281,"Should there be no limit to freedom of speech?","One person's freedom ends where another's begins: offensive, threatening speech should be illegal",13,59.39759,43.73494,0,16096.7177000003
+23,198,"Should Sex Work Be Legal?","The legalisation of sex work increases its prevalence, resulting in more harm",12,62.53012,50,0,4858.11770000035
+24,245,"Should all drugs be legalised?","The enforcement of the criminalisation of drugs has harmed communities around the world and should be stopped",17,54.93976,50,0,3391.40099999989
+25,194,"Should religion be involved in politics?","Politics and religion should be put aside. Three aspects of life should NOT co-exist: religion-state-army",15,33.01205,42.77108,1,10424.6744999999
+26,247,"Should all drugs be legalised?","Using drugs can be an important and positive experience for individuals and communities",13,1.68675,22.89157,1,2050.50249999994
+27,123,"Is Science Akin To Religion?","Science is highly dynamic and constantly evolving; religions are usually static and conservatory",13,74.93976,53.73494,0,4341.80260000005
+28,203,"Should the sale of genetically modified food be banned?","A universal ban is not the right approach to addressing any potential problems with genetically modified foods",17,52.77108,45.3012,1,6760.46910000011
+29,162,"Should some people feel obliged to change their lifestyle to combat global warming?","People living in privileged positions have a moral responsibility to change their lifestyles",13,80.96386,66.98795,0,3533.64330000029
+30,200,"Should the sale of genetically modified food be banned?","Genetically modified foods can be harmful to the environment and ecosystems",11,73.61446,43.49398,0,2134.85370000004
+31,176,"Should abortion be considered murder?","Equating abortion with murder would cause women to use unsafe methods and put their lives at risk",17,82.77108,32.6506,0,11441.6113
+32,212,"Is Eating Meat Wrong?","Eating meat, in the majority of cases, involves the cruel and immoral treatment of animals",15,65.06024,42.77108,0,9103.17120000016
+33,24,"Are Humans fundamentally different from other animals?","Humans have Human Consciousness which is ontologically and fundamentally different than any other form of consciousness",16,96.62651,50,0,5741.65549999999
+34,124,"Is Science Akin To Religion?","Unlike religion, science is based on evidence and experimentation, which is a more reliable methodology for attaining truth",18,87.59036,79.03614,0,6240.95769999985
+35,217,"Is Eating Meat Wrong?","Consuming meat is an important part of many cultures and religions",11,59.75904,59.03614,0,4962.97030000005
+36,204,"Should the sale of genetically modified food be banned?","GMOs are more cost effective than unmodified foods, bringing many benefits",11,55.18072,44.45783,1,7077.51050000009
+37,119,"Is Science Akin To Religion?","Science and religion both use personal experience as a means to understand existence",13,27.46988,53.25301,1,3918.47070000006
+38,153,"Is modern technology a disadvantage to society?","Our society is changing at a pace that must be matched by technological development to prevent disaster",17,67.83133,50,0,6797.14309999998
+39,286,"Should we adapt to climate change rather than avert it?","Adapting to climate change would be faster than averting it",10,43.49398,50,0,5790.93400000036
+40,56,"Do electronic devices help or hurt children's development?","Electronic devices help differently abled children read and write like other kids",12,77.10843,50,0,6135.03140000033
+41,121,"Is Science Akin To Religion?","Science and religion both need belief in something that you do not personally understand to function",16,34.09639,50,0,7915.75150000001
+42,181,"Should nuclear energy replace fossil fuels?","Nuclear energy holds much more potential than fossil fuels in evolving through technological breakthroughs and increased efficiency",17,44.57831,50,0,8863.64980000013
+43,249,"Should all drugs be legalised?","Drugs should remain banned because they are detrimental to the health of those who use them",16,86.62651,50,0,5783.4567999997
+44,59,"Do electronic devices help or hurt children's development?","Using devices in school can negatively affect children's grades",9,45.06024,45.54217,0,5609.64829999942
+45,23,"Are Humans fundamentally different from other animals?","Humans have a sense of self-awareness and individual identity",9,93.25301,50,0,2250.27840000019
+46,21,"Are Humans fundamentally different from other animals?","Humans are intellectually superior to other beings on Earth",9,97.95181,50,0,6944.74639999971
+47,193,"Should religion be involved in politics?","Involving religion in politics is antithetical to the principles of a secular democratic society",14,65.90361,43.01205,0,9771.72649999976
+48,184,"Should nuclear energy replace fossil fuels?","There is a concern in nuclear reactor safety and potential disaster to stakeholders",13,44.93976,45.66265,0,5751.64009999996
+49,175,"Should abortion be considered murder?","A fetus or embryo is not a person; therefore, abortion should not be considered murder",15,30.24096,35.06024,0,5891.61049999949
+50,199,"Should the sale of genetically modified food be banned?","Genetically modified food endangers the health of people who consume it",11,60.84337,50,0,12747.1457000003
+51,287,"Should we adapt to climate change rather than avert it?","It is impossible to stop climate change and its impacts",10,43.61446,50,0,5233.78009999997
+52,149,"Is modern technology a disadvantage to society?","Relying too heavily on technology makes a society vulnerable",9,34.33735,50,0,9360.70900000038
+53,126,"Is Science Akin To Religion?","Surveying definitions of religion shows a focus on divinity and spirituality, which are not present in Western science at all",20,33.73494,50,1,10550.6705999997
+54,202,"Should the sale of genetically modified food be banned?","Genetically modified crops can work towards mitigating world hunger and nutritional deficiencies",12,54.45783,43.49398,1,9100.78710000089
+55,150,"Is modern technology a disadvantage to society?","Technology allows individuals to own or control property at a distance, lessening that individual's direct responsibility for the property",19,47.95181,50,0,17308.6154000002
+56,276,"Should there be no limit to freedom of speech?","Isolated speech has zero capacity to inflict physical harm",9,41.56627,50,0,3416.73940000043
+57,152,"Is modern technology a disadvantage to society?","Modern Technology is outpacing our ability to comprehend, write and approve any effective policy that can protect us from technological harm",21,48.43373,50,1,7324.8433999999
+58,166,"Pro-Life vs Pro-Choice: Should Abortion be Legal?","The ability for people to control their own reproduction is fundamental to achieving gender equality",15,59.15663,42.28916,0,6908.11289999972
+59,54,"Do electronic devices help or hurt children's development?","Devices can benefit parents by offering them greater control over their children's development",13,54.81928,53.49398,0,11291.2063999998
+60,219,"Is Eating Meat Wrong?","Eating meat is a key element of human nature, evolution, and physiology/biology and thus its consumption is inherent to humankind",20,82.16867,50,0,12076.0945000001
+61,29,"Are Humans fundamentally different from other animals?","Genetics prove humans are fundamentally very similar to other species",10,34.33735,37.95181,1,4950.39289999986
+62,288,"Should we adapt to climate change rather than avert it?","Humanity has a long history of successfully adapting to climate change",11,39.15663,50,0,4974.91539999994
+63,101,"Is it ethically wrong to watch pornography?","Masturbation is natural and beneficial, and porn is a useful masturbation aid",12,84.45783,91.08434,0,11308.5899000003
+64,290,"Should we adapt to climate change rather than avert it?","If we decide to adapt to climate change, then we will lose the ability to avert it",17,71.44578,45.18072,0,7633.11130000034
+65,280,"Should there be no limit to freedom of speech?","Unlimited freedom of speech can be used to spread hateful and/or harmful ideologies",13,77.10843,33.73494,0,6759.36000000068
+66,188,"Should religion be involved in politics?","The involvement of religion in politics is necessary to ensure laws and policies are ethical",15,11.92771,15.66265,1,8633.49129999953
+67,155,"Is modern technology a disadvantage to society?","Technologically backwards countries have no power on the global stage",10,77.22892,50,0,5825.31050000037
+68,164,"Pro-Life vs Pro-Choice: Should Abortion be Legal?","People have a right to bodily autonomy and should ultimately be able to make choices about what happens to their bodies",21,59.63855,50,0,16450.2394000004
+69,128,"Is Science Akin To Religion?","There exist many kinds of different religions, some are akin to science, and some are not",16,26.0241,50,0,11108.3338000001
+70,151,"Is modern technology a disadvantage to society?","We are unable to enjoy the present moments in our life due to technology",14,19.63855,36.50602,1,6716.65919999953

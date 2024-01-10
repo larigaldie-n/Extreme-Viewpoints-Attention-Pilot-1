@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <title>Instructions</title>
+</head>
+<body>
+    <section class="main" id="main">
+        <div class="instructions">
+            <p>You will be given a list of statements covering a wide range of questions</p>
+            <p>Here is an example:</p>
+        </div>
+        <article class="article-xp">
+            <header class="header-quest">
+                <p class="claim">Example question: Do Aliens Exist?</p>
+            </header>
+            <div class="empty"></div>
+            <p class="argument">Example statement: If life existed elsewhere in the universe, then it should be obvious to humanity by now</p>
+        </article>
+        <hr>
+        <div class="instructions">
+            <p>Please take the time to read each one of these statements and consider what you think about them</p>
+            <p>When scrolling down through the arguments, please remember to <b>only</b> use the mouse wheel on the provided mouse. Please, do not try to scroll using the side scrollbar or the laptop itself</p>
+            <p>When you are done, click the "Finished Reading" button at the bottom of the page to continue</p>
+        </div>
+        <form action="/XP/" method="get">
+            <input hidden id="user" name="user" value="{{ user }}">
+            <input type="submit" value="Start Study">
+        </form>
+    </section>
+</body>
+</html>
