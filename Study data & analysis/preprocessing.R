@@ -58,7 +58,7 @@ exclude <- function()
     ET_files  <- list.files(path=file.path("raw_data", "ET_raw"), pattern="*.csv", recursive = TRUE)
     if(!(is.element(filename, ET_files)))
     {
-      path <- file.path("excluded_data", "ET_raw", filename)
+      path <- file.path("excluded_data", "responses", filename)
       cat(paste(filename, "Reason: No associated eye-tracker file", sep=", "), file="exclusion_log.txt", sep="\n", append=TRUE)
     }
     file.rename(x, path)

@@ -1,14 +1,7 @@
 26f0f700-c1cf-4d1d-a0b1-d507838ddbc4.csv, Reason: Poor calibration
 31573e10-5ce9-46bf-9325-6b9c20054db3.csv, Reason: Responses absent from the response file (participant did not finish study)
 39d986e5-6766-4be7-8a6f-3ea76f48d3a2.csv, Reason: low frequency of data, 4.02262808765419
-6f50671a-5044-4edf-a7f5-0f2e3b0d81cd.csv, Reason: No associated response file
 d6988fc1-fc55-4d5d-bc86-9c3ed7e6243d.csv, Reason: low frequency of data, 57.5577720696546
-e95c3e14-b318-4d73-b676-acce7458b9db.csv, Reason: No associated response file
 f7050c15-00b0-419f-920a-816f83c17620.csv, Reason: low frequency of data, 41.1193592052032
-26f0f700-c1cf-4d1d-a0b1-d507838ddbc4.csv, Reason: Poor calibration
-31573e10-5ce9-46bf-9325-6b9c20054db3.csv, Reason: Responses absent from the response file (participant did not finish study)
-39d986e5-6766-4be7-8a6f-3ea76f48d3a2.csv, Reason: low frequency of data, 4.02262808765419
-6f50671a-5044-4edf-a7f5-0f2e3b0d81cd.csv, Reason: No associated response file
-d6988fc1-fc55-4d5d-bc86-9c3ed7e6243d.csv, Reason: low frequency of data, 57.5577720696546
-e95c3e14-b318-4d73-b676-acce7458b9db.csv, Reason: No associated response file
-f7050c15-00b0-419f-920a-816f83c17620.csv, Reason: low frequency of data, 41.1193592052032
+6f50671a-5044-4edf-a7f5-0f2e3b0d81cd.csv, Reason: No associated eye-tracker file
+e95c3e14-b318-4d73-b676-acce7458b9db.csv, Reason: No associated eye-tracker file
