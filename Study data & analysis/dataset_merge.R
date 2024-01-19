@@ -84,10 +84,6 @@ datasets_merge <- function()
   responses_files  <- list.files(file.path("raw_data", "responses"), pattern="*.csv", full.names = TRUE)
   d_responses      <- lapply(responses_files, read_csv, comment="#", show_col_types = FALSE)
   
-  lapply(d_eye_tracking,
-         function(x) { correct_fixation_times(x)
-         })
-  
   for (i in seq_len(length(d_eye_tracking)))
   {
     cat(paste(" File:", ET_files_names[[i]]))
