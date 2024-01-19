@@ -10,6 +10,7 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(markdown)
 library(tidyverse)
 library(lme4)
 library(afex)
