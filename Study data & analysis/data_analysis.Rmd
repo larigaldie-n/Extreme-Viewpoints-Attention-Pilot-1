@@ -1,11 +1,11 @@
 ---
-title: "Data analysis pilots"
-author: "Nathanael Larigaldie"
+title: "Data analysis Pilot 1"
 date: "`r Sys.Date()`"
 output: 
   pdf_document: 
     toc: yes
     latex_engine: lualatex
+    dev: cairo_pdf
 ---
 
 ```{r setup, include=FALSE}
@@ -13,24 +13,137 @@ knitr::opts_chunk$set(echo = TRUE)
 library(markdown)
 library(tidyverse)
 library(lme4)
-library(afex)
-library(emmeans)
 library(gridExtra)
-library(sjPlot)
-library(sjmisc) 
-library(effects)
-library(sjstats)
-library(simr)
+library(afex)
+library(cowplot)
+```
+
+## Fit algorithm definition
+```{r}
+
+fit_algo <- function(new_call,
+                     newData = NULL,
+                     type = "lmer")
+{
+  if (type != "lmer" && type != "glmer")
+  {
+    stop("type must be lmer or glmer")
+  }
+  new_call["start"] <- NULL
+  new_call["control"] <-
+    parse(text = paste0(
+      type,
+      'Control(optimizer ="bobyqa", optCtrl = list(maxfun=1000000))'
+    ))
+  error_msg <- tryCatch({
+    rval <- eval(new_call)
+    if (length(rval@optinfo$conv$lme4) != 0)
+    {
+      "convergence"
+    }
+    else
+    {
+      "ok"
+    }
+  }, error = function(e) {
+    "error"
+  })
+  count <- 0
+  while (error_msg != "ok" && count < 4)
+  {
+    if (error_msg == "convergence")
+    {
+      new_call["start"] <- parse(text = "list(fixef = fixef(rval))")
+    }
+    count <- count + 1
+    error_msg <- tryCatch({
+      rval <- eval(new_call)
+      if (length(rval@optinfo$conv$lme4) != 0)
+      {
+        "convergence"
+      }
+      else
+      {
+        "ok"
+      }
+    }, error = function(e) {
+      "error"
+    })
+  }
+  new_call["start"] <- NULL
+  new_call["control"] <-
+    parse(text = paste0(
+      type,
+      'Control(optimizer ="Nelder_Mead", optCtrl = list(maxfun=1000000))'
+    ))
+  count <- 0
+  while (error_msg != "ok" && count < 5)
+  {
+    count <- count + 1
+    error_msg <- tryCatch({
+      rval <- eval(new_call)
+      if (length(rval@optinfo$conv$lme4) != 0)
+      {
+        "convergence"
+      }
+      else
+      {
+        "ok"
+      }
+    }, error = function(e) {
+      "error"
+    })
+    if (error_msg == "convergence")
+    {
+      new_call["start"] <- parse(text = "list(fixef = fixef(rval))")
+    }
+    
+  }
+  new_call["start"] <- NULL
+  new_call["control"] <- NULL
+  count <- 0
+  while (error_msg != "ok" && count < 5)
+  {
+    count <- count + 1
+    error_msg <- tryCatch({
+      rval <- eval(new_call)
+      if (length(rval@optinfo$conv$lme4) != 0)
+      {
+        "convergence"
+      }
+      else
+      {
+        "ok"
+      }
+    }, error = function(e) {
+      "error"
+    })
+    if (error_msg == "convergence")
+    {
+      new_call["start"] <- parse(text = "list(fixef = fixef(rval))")
+    }
+    
+  }
+  if (!exists("rval"))
+  {
+    eval(new_call)
+  }
+  return(rval)
+}
+
 ```
 
 ## Dataset loading
 
 ```{r}
-datasets       <- list.files(file.path("final_data"), pattern="*.csv", full.names = TRUE)
+datasets <-
+  list.files(file.path("final_data"),
+             pattern = "*.csv",
+             full.names = TRUE)
 datasets       <- lapply(datasets, read_csv, show_col_types = FALSE)
 
 d <- datasets[[1]]
-for (i in seq(from=2, to=length(datasets)))
+for (i in seq(from = 2, to = length(datasets)))
 {
   d <- rbind(d, datasets[[i]])
 }
@@ -39,84 +152,153 @@ for (i in seq(from=2, to=length(datasets)))
 ## Dataset preparation
 
 ```{r}
-d <- d %>% mutate(Subject=rep(seq_len(length(datasets)), each=100))
+d <- d %>% mutate(Subject = rep(seq_len(length(datasets)), each = 100))
 ```
 
 Then we remove fixation times <=1500ms, scale the Agreement feature and take its square, and log-transform Fixation.Time
 
 ```{r}
 d_final <- d %>% filter(Fixation.Time > 1500) %>%
-  mutate(Fixation.Time.Log = log(Fixation.Time),
-         Agreement.Scaled = (Agreement-mean(Agreement))/sd(Agreement),
-         Squared.Agreement.Scaled=Agreement.Scaled^2,
-         Index=as.factor(Index), Subject=as.factor(Subject))
+  mutate(
+    Fixation.Time.Log = log(Fixation.Time),
+    Agreement.Scaled = (Agreement - mean(Agreement)) / sd(Agreement),
+    Squared.Agreement.Scaled = Agreement.Scaled ^ 2,
+    Index = as.factor(Index),
+    Subject = as.factor(Subject)
+  )
 ```
 
 ## Variables plot (violin & boxplot + density)
 
 ```{r}
 
-violin_fixation <- ggplot(d_final, aes(x="Fixation time", y=Fixation.Time.Log)) +
-  ylab("Fixation Time (log)") + theme_minimal() +
+violin_fixation <-
+  ggplot(d_final, aes(x = "Fixation time", y = Fixation.Time)) +
+  ylab("Fixation Time") + theme_minimal() +
   theme(legend.position = "none") +
-  geom_violin(width=1.2) + geom_boxplot(width=0.1, alpha=0.2)
+  geom_violin(width = 1.2) + geom_boxplot(width = 0.1, alpha = 0.2)
 
 
-violin_agreement <- ggplot(d_final, aes(x="Agreement", y=Agreement.Scaled)) +
+violin_agreement <-
+  ggplot(d_final, aes(x = "Agreement", y = Agreement.Scaled)) +
   ylab("Agreement (scaled)") + theme_minimal() +
   theme(legend.position = "none") +
-  geom_violin(width=1.2) + geom_boxplot(width=0.1, alpha=0.2)
+  geom_violin(width = 1.2) + geom_boxplot(width = 0.1, alpha = 0.2)
 
-density_fixation <- ggplot(d_final, aes(x=Fixation.Time.Log)) + geom_density()
-  
-density_agreement <- ggplot(d_final, aes(x=Agreement.Scaled)) + geom_density()
+density_fixation <-
+  ggplot(d_final, aes(x = Fixation.Time)) + geom_density()
 
-grid.arrange(violin_fixation, violin_agreement, density_fixation,
-             density_agreement, nrow=2)
+density_agreement <-
+  ggplot(d_final, aes(x = Agreement.Scaled)) + geom_density()
+
+grid.arrange(violin_fixation,
+             violin_agreement,
+             density_fixation,
+             density_agreement,
+             nrow = 2)
 
 ```
 
-## Statistical model
+## Statistical models (log-tranformed, GLMM with Gamma-distributed errors and LMM with normal-distributed errors)
 
 ```{r}
-res_mixed <- lmer(Fixation.Time.Log ~ Agreement.Scaled +
+log_call <- parse(
+  text = 'lmer(Fixation.Time.Log ~ Agreement.Scaled +
                     Squared.Agreement.Scaled +
                     (1 | Index) +
                     (Agreement.Scaled + Squared.Agreement.Scaled | Subject),
-                  data=d_final, control = lmerControl(optimizer ="bobyqa"))
+                  data=d_final)'
+)[[1]]
 
-summary(res_mixed)
-plot_model(res_mixed,
-           axis.labels=c("Agreement (Quadratic)", "Agreement"),
-           show.values=TRUE, show.p=TRUE,
-           title="Quadratic effect of Agreement on Fixation Times")
+fit_log <- fit_algo(log_call)
 
-quad_function <- function(x, alpha, beta1, beta2)
-{
-  return(alpha + beta1*x + beta2*x^2)
-}
+summary(fit_log)
+
+fit_call <- parse(text = 'lmer(Fixation.Time ~ Agreement.Scaled +
+                    Squared.Agreement.Scaled +
+                    (1 | Index) +
+                    (1 | Subject),
+                  data=d_final)')[[1]]
+
+fit <- fit_algo(fit_call)
+
+summary(fit)
 ```
 
-### Random effect plot
+### Fixed effects plots
 
 ```{r}
-ggplot() +
-  geom_point(data=d_final, aes(Agreement.Scaled, Fixation.Time.Log)) +
-  geom_function(fun=quad_function,
-                args=list(alpha=summary(res_mixed)[["coefficients"]][1],
-                                        beta1=summary(res_mixed)[["coefficients"]][2],
-                                        beta2=summary(res_mixed)[["coefficients"]][3]),
-                color="blue",
-                linewidth=1.5)
+d_final$log_prediction <- exp(predict(fit_log, re.form = NA))
+d_final$prediction <- predict(fit, re.form = NA)
 
+colors <-
+  c(
+    "Log transformed" = "lightpink2",
+    "Normal-assumed errors" = "lightgreen"
+  )
+
+ggplot(d_final) +
+  geom_line(aes(x = Agreement.Scaled, log_prediction, color = "Log transformed"),
+            linewidth = 1.5) +
+  geom_line(aes(x = Agreement.Scaled, prediction, color = "Normal-assumed errors"),
+            linewidth = 1.5) +
+  theme_minimal_grid() +
+  theme(text = element_text(size = 16)) +
+  labs(y = "Fixation time", x = "Agreement", color = "Model") +
+  scale_color_manual(values = colors)
+
+plot <- ggplot(d_final) +
+  geom_line(
+    aes(x = Agreement.Scaled, prediction),
+    color = "lightgreen",
+    linewidth = 1.5
+  ) +
+  theme_minimal_grid() +
+  theme(text = element_text(size = 16)) +
+  labs(y = "Fixation time", x = "Agreement")
+plot
+ggsave(plot, filename = "study1_plot.png", type = "cairo")
 ```
-
-### Residuals analysis
 
 ```{r}
-qqnorm(residuals(res_mixed))
-qqline(residuals(res_mixed))
-hist(residuals(res_mixed))
-ks.test(x=residuals(res_mixed), y='pnorm')
-```
+vertex <-
+  (-summary(fit)[["coefficients"]][2]) / (2 * summary(fit)[["coefficients"]][3])
 
+pred <-
+  predict(
+    fit,
+    re.form = NA,
+    newdata = tibble(
+      Agreement.Scaled = c(
+        min(d_final$Agreement.Scaled),
+        vertex,
+        max(d_final$Agreement.Scaled)
+      ),
+      Squared.Agreement.Scaled = Agreement.Scaled ** 2
+    )
+  )
+
+table <- round(matrix(
+  c(
+    vertex,
+    min(d_final$Agreement.Scaled),
+    max(d_final$Agreement.Scaled),
+    pred[2] - pred[1],
+    pred[2] - pred[3]
+  ),
+  ncol = 1,
+  byrow = TRUE
+), 3)
+
+rownames(table) <-
+  c(
+    'Vertex position',
+    'min agreement',
+    'max agreement',
+    'diff min vs. vertex',
+    'diff max vs. vertex'
+  )
+colnames(table) <- c('Results')
+table <- as.table(table)
+table
+```
